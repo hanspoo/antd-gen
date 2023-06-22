@@ -1,0 +1,11 @@
+{
+  "name": "@hanspoo/antd",
+  "version": "0.0.3",
+  "license": "MIT",
+  "type": "commonjs",
+  "generators": "./generators.json",
+  "description": "Generadores de nx para antd",
+  "author": {
+    "email": "hans@welinux.cl"
+  }
+}
