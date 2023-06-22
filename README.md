@@ -15,10 +15,6 @@ npm install @hanspoo/antd@latest
 nx g @hanspoo/antd:detail libs/eventos/api/src/lib/EventoFull.ts
 ```
 
-## This is a Work in progress
-
-This is our first plugin so it is not for regular use yet.
-
 ## We scaffold this project with a package based empty nx monorepo
 
 ```
@@ -28,10 +24,14 @@ nx generate @nx/plugin:generator detail --project=antd
 nx generate @nx/plugin:generator table --project=antd
 ```
 
-## Publicar
+## Update published release
 
 ```
 nx build antd
 cd ./dist/packages/antd/
 npm publish --access public
 ```
+
+## Warning: this is a Work in progress
+
+This is our first plugin so it is not for regular use yet.
