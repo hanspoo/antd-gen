@@ -10,9 +10,22 @@ with regexes, planing to improve using AST.
 
 Usage:
 
+1.- Install
+
 ```
 npm install @hanspoo/antd@latest
+```
+
+Generate code:
+
+```
 nx g @hanspoo/antd:detail libs/eventos/api/src/lib/EventoFull.ts
+```
+
+if the file name starts with slash, it is opened verbatim from file system, not relative to nx project, i.e:
+
+```
+nx g  @hanspoo/antd:detail /home/julian/fundacion/nx-workspace/libs/eventos/api/src/lib/DiaEvento.ts
 ```
 
 ## We scaffold this project with a package based empty nx monorepo

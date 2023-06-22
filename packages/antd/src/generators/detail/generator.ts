@@ -1,13 +1,19 @@
+import * as fs from 'fs';
 import { Tree } from '@nrwl/devkit';
 import { DetailViewGeneratorSchema } from './schema';
 
 export default async function (tree: Tree, options: DetailViewGeneratorSchema) {
-  const data = tree.read(`${options.name}`);
-  const s = data.toString('utf-8');
-  const match = /(class|interface) (\w+)/.exec(s);
+  let data: string;
+  if (options.name.startsWith('/')) {
+    data = fs.readFileSync(options.name).toString();
+  } else data = tree.read(`${options.name}`).toString();
+
+  const match = /(class|interface|type) (\w+)/.exec(data);
   if (!match) return;
 
-  const fields = s.split('\n').filter((line) => /\w+\??: \w+.*?;/.test(line));
+  const fields = data
+    .split('\n')
+    .filter((line) => /\w+\??: \w+.*?;/.test(line));
   const conTipos: Array<{ title: string; dataIndex: string; type: string }> =
     fields.map((line) => {
       const [name, type] = line.split(': ');
